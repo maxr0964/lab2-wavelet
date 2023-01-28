@@ -1,16 +1,12 @@
 import java.io.IOException;
 import java.net.URI;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
+
 
 class Handler implements URLHandler {
-    // The one bit of state on the server: a number that will be manipulated by
-    // various requests.
+    // The one bit of state on the server: a string to which query strings are appended
     String allStrings = "";
 
-    //this search engine returns the first word that contains the substring, not all of them
-    //ALSO!!!! there is some problem with the encoding of the the string (container in the return statement)
-    //not sure how to fix it
+    //parse the string to be displayed and add it to allStrings
     public String handleRequest(URI url) {
             if (url.getPath().contains("/add-message")) {
                 String[] parameters = url.getQuery().split("=");
